@@ -1,0 +1,53 @@
+<div class="modal fade" id="nuevoCliente">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"title="Cerrar">&times;</button>
+                <h4 class="modal-title">Nuevo cliente</h4>
+            </div>
+            <div class="modal-body">
+                <form id="formNuevoCliente" action="../controllers/clientes/addCliente.php" method="post">
+                    <!--NOMBRE Y APELLIDO O RAZON SOCIAL-->
+                    <div class="form-group">
+                        <input class="form-control" type="text" maxlength="50" title="Nombre y Apellido o Razon social" name="razon" id="razon" onkeypress="return combinado(event)" required placeholder="Nombre y Apellido o Razon social" autocomplete="off">
+                    </div>
+                    <!--CAMPOS DE RIF-->
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <!--TIPO DE RIF-->
+                            <select class="form-control" name="Lrif" required id="rif">
+                                <option value="">Tipo de RIF</option>
+                                <option value="1">Venezolano</option>
+                                <option value="2">Juridico</option>
+                                <option value="3">Gubernamental</option>
+                                <option value="4">Extranjero</option>
+                                <option value="5">Pasaporte</option>
+                            </select>
+                        </div>
+                        <!--NUMERO DE RIF-->
+                        <div class="col-md-4">
+                            <input class="form-control" type="text" name="Nrif" id="Nrif" maxlength="10" minlength="6" title="SOLO SE ADMITEN NUMEROS" onkeypress=" return soloNumero(event)" onblur="limpiaRif()" required placeholder="Numero RIF" autocomplete="off">
+                        </div>
+                    </div>
+                    <!--DIRECCION-->
+                    <div class="form-group" style="padding-top: 8%;">
+                        <textarea class="form-control" title="Maximo 120 caracteres" name="direccion" id="direccion" cols="5" rows="3" maxlength="120" required placeholder="Dirección"></textarea>
+                    </div>
+                    <!--CORREO-->
+                    <div class="form-group">
+                        <input class="form-control" type="email" name="correo" id="correo" required placeholder="Correo" autocomplete="off">
+                    </div>
+                    <!--TELEFONO-->
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="telefono" id="telefono"  maxlength="12" maxlength="10" onkeypress="return soloNumero(event)" onblur="limpiatelf()" required placeholder="Telefono" autocomplete="off">
+                    </div>
+
+                    <input class="btn btn-primary" type="submit" value="Guardar">
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+

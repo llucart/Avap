@@ -1,0 +1,16 @@
+#Config sitio
+php_value display_errors 1
+php_value output_buffering on
+php_flag output_buffering on
+
+Options -MultiViews
+Options -Indexes
+RewriteEngine on
+RewriteBase /Avap
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^(.*)$ $1.php
+<Files .htaccess>
+Order allow,deny
+Deny from all
+</Files>

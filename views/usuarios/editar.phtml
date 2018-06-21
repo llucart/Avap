@@ -1,0 +1,31 @@
+<div class="modal fade" id="editUsuario">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" title="Cerrar">&times;</button>
+                <h4 class="modal-title">Editar perfil</h4>
+            </div>
+            <div class="modal-body">
+                <form id="formEditUsuario" action="../controllers/usuario/editUsuario.php" method="post">
+                    <input type="hidden" name="id_new_usuario" id="id_new_usuario">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="new_cuenta" id="new_cuenta" required autocomplete="off">
+                    </div>
+                     <div class="form-group">
+                        <input class="form-control" type="password" name="new_clave" id="new_clave" required placeholder="Nueva contraseña" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                    <select name="new_rol" class="form-control" required>
+                        <option value="">Selecciona un nuevo rol</option>
+                        <option value="1">Presidente</option>
+                        <option value="2">Director Administrativo</option>
+                        <option value="3">Vendedor</option>
+                        <option value="4">Administrador del sistema</option>
+                    </select>
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Guardar">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

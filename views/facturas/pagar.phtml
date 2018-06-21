@@ -1,0 +1,23 @@
+<div class="modal fade bs-example-modal-xs" id="pagarFactura">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" title="Cerrar">&times;</button>
+                <h4 class="modal-title">Pagar Factura</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="hidden" id="id_pagarfactura">    
+                    <input type="hidden" id="estado_factura" value="1"> 
+                    <div class="form-group">
+                        <strong>Fecha de pago: </strong><br> 
+                        <input class="form-control" required type="date" id="fechaPago">
+                    </div>
+                      
+                    <input class="btn btn-primary" id="btnpagar" type="button" value="Pagar">
+                    <input class="btn btn-primary pull-right" type="button" data-dismiss="modal" value="Cancelar">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

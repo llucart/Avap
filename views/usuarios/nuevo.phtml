@@ -1,0 +1,41 @@
+
+<div class="modal fade" id="nuevoUsuario">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        title="Cerrar">&times;</button>
+                <h4 class="modal-title">Nuevo usuario</h4>
+            </div>
+            <div class="modal-body">
+                <form id="formNuevoUsuario"> 
+                    <div class="form-group">
+                        <input class="form-control" type="text" id="nombre" name="nombre"  maxlength="12" minlength="4" onkeypress="return soloLetras(event)" required placeholder="Nombre" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" id="apellido" name="apellido"  maxlength="12" minlength="3" onkeypress="return soloLetras(event)" required placeholder="Apellido" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" id="cuenta" name="cuenta"  maxlength="20" required title="requiere entre 8 y 20 caracteres" placeholder="Cuenta" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" id="clave" name="clave" maxlength="16" minlength="8" required title="requiere entre 8 y 16 caracteres" placeholder="Contraseña" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" id="confirmaclave" maxlength="16" minlength ="8" required placeholder="Confirmar Contraseña" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                    <select id="rol" name="rol" class="form-control" required>
+                        <option value="">Selecciona un nuevo rol</option>
+                        <option value="1">Presidente</option>
+                        <option value="2">Director Administrativo</option>
+                        <option value="3">Vendedor</option>
+                        <option value="4">Administrador del sistema</option>
+                    </select>
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Guardar">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

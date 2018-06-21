@@ -1,0 +1,48 @@
+<div class="modal fade" id="editFactura">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" title="Cerrar">&times;</button>
+                <h4 class="modal-title">Editar Factura</h4>
+            </div>
+            <div class="modal-body">
+                <form id="formEditFactura" action="../controllers/facturas/editFactura.php" method="post">
+                    <input type="hidden" name="id_new_factura" id="id_new_factura">
+                    <div class="form-group">
+                        <select class="form-control" name="id_new_cliente" id="id_new_cliente">
+                        <?php for($i=0; $i<count($clientes); $i++){ $rs = $clientes[$i]; ?>
+                            <option value="<?php echo $rs['id_cliente']; ?>"><?php echo $rs['correo']; ?></option>
+                                <?php } ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="label label-default">Orden de compra</label>
+                        <input class="form-control" type="text" name="new_ordenCompra" id="new_ordenCompra"onkeypress="return soloLetras(event)" maxlength="25" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label class="label label-default">Poliza</label>
+                        <input class="form-control" type="text" name="new_poliza" id="new_poliza"onkeypress="return soloLetras(event)" maxlength="15" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label class="label label-default">Siniestro</label>
+                        <input class="form-control" type="text" name="new_siniestro" id="new_siniestro"onkeypress="return soloLetras(event)" maxlength="15" autocomplete="off">
+                    </div>
+                    <div class="form-group"> 
+                        <label class="label label-default">Fecha de pago</label>
+                        <input class="form-control" type="date" name="new_fecha" id="new_fecha">
+                    </div>
+
+                    <div class="form-group">
+                    	<select class="form-control" name="new_factura_estado" id="new_factura_estado">
+	                        <option value="0"></option>
+	                        <option value="1">Pagada</option>
+	                        <option value="2">No Pagada</option>
+	                        <option value="3">Anulada</option>
+                    	</select>
+                    </div>        
+                    <input class="btn btn-primary" type="submit" value="Guardar">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

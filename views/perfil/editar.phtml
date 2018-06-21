@@ -1,0 +1,25 @@
+<div class="modal fade" id="editarPerfil">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" title="Cerrar">&times;</button>
+                <h4 class="modal-title">Editar perfil</h4>
+            </div>
+            <div class="modal-body">
+                <form id="formEditUsuario">
+                    <input type="hidden" name="id_new_perfil" id="id_new_perfil">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="new_cuenta" id="new_cuenta" required autocomplete="off" disabled>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" id="new_clave" name="new_clave" maxlength="16" minlength ="6" title="minimo 8 y maximo 16 caracteres entre letras, numeros y un caracter especial " required placeholder="Nueva contraseña" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" id="new_clave_confirm" name="new_clave_confirm" maxlength="16" minlength ="6" title="minimo 8 y maximo 16 caracteres entre letras, numeros y un caracter especial" required placeholder="Confirmar nueva contraseña" autocomplete="off">
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Guardar">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

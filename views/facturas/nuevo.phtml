@@ -1,0 +1,127 @@
+<?php 
+    $cliente = new Cliente();
+    $clientes = $cliente->getClientes();
+    $almacen = new Almacen();
+	$repuestos = $almacen->getAlmacen();
+ ?>
+<div class="modal fade" id="nuevaFactura">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        title="Cerrar">&times;</button>
+                <h4 class="modal-title">Nueva factura</h4>
+            </div>
+            <div class="modal-body">
+                <form id="formNuevoCliente" action="../controllers/facturas/addFactura.php" method="post">
+                    <div class="form-group">
+                    	<select name="id_cliente" class="form-control">
+                            <option value="">Selecciona un cliente</option>
+                            <?php for($i=0; $i<count($clientes); $i++){ $rs = $clientes[$i]; ?>
+                                <option value="<?php echo $rs['id_cliente']; ?>">
+                                    <?php echo $rs['nombres']; ?>        
+                                </option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="date" name="fecha" id="fecha" required placeholder="Fecha" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="razon_social" id="razon_social" required placeholder="Razon social" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="n_poliza" id="n_poliza" placeholder="Poliza" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="email" name="n_siniestro" id="n_siniestro" placeholder="Siniestro" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <table id="factura" class="table table-responsive">
+                            <tr>
+                                <th>Repuesto</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Cantidad</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select id="repuesto" name="repuesto" class="form-control repuesto">
+                                        <option value="">Selecciona un repuesto</option>
+                                        <?php for($i=0; $i<count($repuestos); $i++){ $rs = $repuestos[$i]; ?>
+                                            <option value="<?php echo $rs['id_repuesto']; ?>">
+                                                <?php echo $rs['descripcion']; ?>        
+                                            </option>
+                                        <?php } ?>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control" readonly="off" id="precio_unitario">
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control" readonly="off" id="stock">
+                                </td>
+                                <td>
+                                    <input type="number" id="cantidad" class="form-control" required placeholder="Cantidad">
+                                </td>
+                                <td>
+                                    <button type="button" id="agregar" class="btn btn-default">Agregar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select id="repuesto1" name="repuesto1" class="form-control">
+                                        <option value="">Selecciona un repuesto</option>
+                                        <?php for($i=0; $i<count($almacenes); $i++){ $rs = $almacenes[$i]; ?>
+                                            <option value="<?php echo $rs['id_repuesto']; ?>">
+                                                <?php echo $rs['descripcion']; ?>        
+                                            </option>
+                                        <?php } ?>
+                                    </select>
+                                </td>
+                            <td>
+                                <input type="number" class="form-control" readonly="off" id="precio_unitario1">
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" readonly="off" id="stock1">
+                            </td>
+                            <td>
+                                <input type="number" id="cantidad1" class="form-control" required placeholder="Cantidad">
+                            </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="base_imponible" name="base_imponible" id="base_imponible" placeholder="Base imponible" readonly="off" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="iva" id="iva" required placeholder="Iva" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="total" id="total" required placeholder="Total" readonly="off" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                    	<label for="checkbox_vehiculo">Añadir vehículo</label>
+                    	<input type="checkbox" id="checkbox_vehiculo" class="checkbox-inline" name="checkbox_vehiculo">
+                    </div>
+                    <!-- Campos vehiculos -->
+                    <div id="mostrar" class="mostrar">
+	                    <div class="form-group">
+	                        <input class="form-control" type="text" name="marca" id="marca" required placeholder="Marca" autocomplete="off">
+	                    </div>
+	                    <div class="form-group">
+	                        <input class="form-control" type="text" name="modelo" id="modelo" required placeholder="Modelo" autocomplete="off">
+	                    </div>
+	                    <div class="form-group">
+	                        <input class="form-control" type="text" name="anio" id="anio" required placeholder="Año" autocomplete="off">
+	                    </div>
+	                     <div class="form-group">
+	                        <input class="form-control" type="text" name="placa" id="placa" required placeholder="Placa" autocomplete="off">
+	                    </div>
+	                 </div>              
+                    <input class="btn btn-primary" type="submit" value="Guardar">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

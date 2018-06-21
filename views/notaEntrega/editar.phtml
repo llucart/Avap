@@ -1,0 +1,45 @@
+<div class="modal fade" id="editNota">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" title="Cerrar">&times;</button>
+                <h4 class="modal-title">Editar Nota</h4>
+            </div>
+            <div class="modal-body">
+                <form id="formEditNota" action="../controllers/notaEntrega/editNotaEntrega.php" method="post">
+                    <input type="hidden" name="id_nota_entrega" id="id_nota_entrega">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="new_codigo" id="new_codigo" required autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="new_empresa" id="new_empresa" required autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="new_nro_guia" id="new_nro_guia" required autocomplete="off">
+                    </div> 
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="new_costo_envio" id="new_costo_envio" required autocomplete="off">
+                    </div>  
+                    <div class="form-group">
+                        <strong>fecha de envio: </strong>
+                        <input class="form-control" type="date" name="new_fecha_envio" id="new_fecha_envio" required autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <strong>fecha de entrega: </strong>
+                        <input class="form-control" type="date" name="new_fecha_entrega" id="new_fecha_entrega" required autocomplete="off">
+                    </div>    
+                    <div class="form-group">
+                    	<select class="form-control" name="new_estado" id="new_estado">
+	                        <option value="0"></option>
+	                        <option value="1">Enviado</option>
+	                        <option value="2">Recibido</option>
+	                        <option value="3">Extraviado</option>
+                            <option value="4">Devuelto</option>
+                    	</select>
+                    </div>        
+                    <input class="btn btn-primary" type="submit" value="Guardar">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

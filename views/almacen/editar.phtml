@@ -1,0 +1,36 @@
+<div class="modal fade" id="editRepuesto">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" title="Cerrar">&times;</button>
+                <h4 class="modal-title">Editar Repuesto</h4>
+            </div>
+            <div class="modal-body">
+                <form id="formEditCliente" action="../controllers/almacen/editAlmacen.php" method="post">
+                    <input type="hidden" name="id_repuesto" id="id_repuesto">
+                    <div class="form-group">
+                        <select class="form-control" name="new_tipo" id="new_tipo">
+                            <option value="0"></option>
+                            <option value="1">Original</option>
+                            <option value="2">Generico</option>
+                            <option value="3">Oportunidad</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="new_descripcion" id="new_descripcion" onkeypress="return combinado(event)" required autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="new_detalle" id="new_detalle" onkeypress="return combinado(event)" required autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="number" name="new_precio_unitario" id="new_precio_unitario" step="0.5" required placeholder="Precio unitario" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="new_stock" id="new_stock" maxlength="3" onkeypress="return soloNumero(event)" required autocomplete="off">
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Guardar">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
